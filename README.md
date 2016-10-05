@@ -5,3 +5,4 @@ A quiz with flags.
 - PHP >= 7
 - MySQL >= 5.6
 - Phalcon >= 3 https://phalconphp.com/en/
+- NPM >= 3
