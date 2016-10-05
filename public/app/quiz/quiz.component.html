@@ -1,0 +1,3 @@
+<h1 *ngIf="quiz">{{quiz.title}}</h1>
+
+<a *ngIf="quiz" routerLink="/quiz/{{quiz.id}}/question/" routerLinkActive="active">Start</a>

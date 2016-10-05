@@ -1,0 +1,55 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #fff;
+	background-image:
+		linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
+		linear-gradient(#eee .1em, transparent .1em);
+	background-size: 100% 1.2em;
+	font-family: sans-serif;
+}
+
+my-app {
+	display: block;
+	margin: 0 auto;
+	width: 90%;
+}
+
+my-app #question {
+
+}
+my-app #question img {
+	width: 100%;
+}
+
+my-app #question #answers {
+	display: flex;
+	flex-wrap: wrap;
+}
+my-app #question #answers .answer {
+	flex-basis: 50%;
+	font-size: 1.1em;
+	text-align: center;
+}
+my-app #question #answers .answer div {
+	background: #1a1a1a;
+	color: #eee;
+	margin: 0.5em;
+	padding: 1em;
+}
+
+my-app #total {
+	display: flex;
+}
+my-app #total #correct {
+	background: green;
+}
+my-app #total #wrong {
+	background: red;
+}
+
+@media all and (orientation: landscape) {
+	my-app {
+		width: 50%;
+	}
+}
