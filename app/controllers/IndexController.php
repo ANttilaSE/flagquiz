@@ -4,6 +4,7 @@ use Phalcon\Mvc\Controller;
 
 class IndexController extends Controller {
 	public function indexAction() {
+		die("index");
 		$mode = $this->request->hasQuery("m")? intval($this->request->getQuery("m")): 0; # 0: all, 1: by continent
 		$continent = $this->request->hasQuery("c")? intval($this->request->getQuery("c")): 0;
 
