@@ -28,7 +28,7 @@ class QuestionChoiceController extends Controller {
 		$question = Question::findFirst($questionId);
 		$questionChoice = QuestionChoice::findFirst($input->id);
 
-		$answer = new UserQuestionAnswer();
+		$answer = new UserQuestionChoice();
 		$answer->user_id = 1;
 		$answer->question_id = $questionId;
 		$answer->question_choice_id = $input->id;
@@ -36,7 +36,7 @@ class QuestionChoiceController extends Controller {
 
 		$response = new Response();
 		if ($answer->create() === false) {
-			$answer = UserQuestionAnswer::findFirst([
+			$answer = UserQuestionChoice::findFirst([
 				"user_id = ?1 AND question_id = ?2",
 				"bind" => [
 					1 => 1,

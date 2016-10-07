@@ -2,7 +2,7 @@
 
 use Phalcon\Mvc\Model;
 
-class UserQuestionAnswer extends Model {
+class UserQuestionChoice extends Model {
 	public $userId;
 	public $questionId;
 	public $questionChoiceId;
