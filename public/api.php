@@ -51,6 +51,12 @@ $question->get("/choice", "indexAction");
 $question->post("/answer", "answerAction");
 $app->mount($question);
 
+$userQuestion = new MicroCollection();
+$userQuestion->setHandler(new UserQuestionChoiceController());
+$userQuestion->setPrefix("/api/user/{userId}/quiz/{quizId}");
+$userQuestion->get("/", "resultAction");
+$app->mount($userQuestion);
+
 $app->notFound(function () use ($app) {
 	$app->response->setStatusCode(404, "Not Found");
 	$app->response->sendHeaders();
