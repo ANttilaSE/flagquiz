@@ -5,3 +5,8 @@
 		<button *ngFor="let choice of question.choices" (click)="answer(choice.id)">{{choice.text}}</button>
 	</div>
 </div>
+<div *ngIf="result">
+	<p *ngFor="let choice of result">
+		{{choice.question_id}}: {{choice.is_right}}
+	</p>
+</div>

@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/platform-browser', '@angular/http', './app.routing', './app.component', './quiz/quiz-list.component', './quiz/quiz.component', './quiz/quiz.service', './question/question.component', './question/question.service', './question-choice/question-choice.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/platform-browser', '@angular/http', './app.routing', './app.component', './quiz/quiz-list.component', './quiz/quiz.component', './quiz/quiz.service', './question/question.component', './question/question.service', './question-choice/question-choice.service', './user-question-choice/user-question-choice.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/http', 
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, platform_browser_1, http_1, app_routing_1, app_component_1, quiz_list_component_1, quiz_component_1, quiz_service_1, question_component_1, question_service_1, question_choice_service_1;
+    var core_1, platform_browser_1, http_1, app_routing_1, app_component_1, quiz_list_component_1, quiz_component_1, quiz_service_1, question_component_1, question_service_1, question_choice_service_1, user_question_choice_service_1;
     var AppModule;
     return {
         setters:[
@@ -46,6 +46,9 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/http', 
             },
             function (question_choice_service_1_1) {
                 question_choice_service_1 = question_choice_service_1_1;
+            },
+            function (user_question_choice_service_1_1) {
+                user_question_choice_service_1 = user_question_choice_service_1_1;
             }],
         execute: function() {
             AppModule = (function () {
@@ -68,7 +71,8 @@ System.register(['@angular/core', '@angular/platform-browser', '@angular/http', 
                             app_routing_1.appRoutingProviders,
                             quiz_service_1.QuizService,
                             question_service_1.QuestionService,
-                            question_choice_service_1.QuestionChoiceService
+                            question_choice_service_1.QuestionChoiceService,
+                            user_question_choice_service_1.UserQuestionChoiceService
                         ],
                         bootstrap: [
                             app_component_1.AppComponent

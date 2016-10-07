@@ -1,4 +1,4 @@
-System.register(['@angular/core', '@angular/router', './question.service', '../question-choice/question-choice.service'], function(exports_1, context_1) {
+System.register(['@angular/core', '@angular/router', './question.service', '../question-choice/question-choice.service', '../user-question-choice/user-question-choice.service'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(['@angular/core', '@angular/router', './question.service', '../q
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, router_1, question_service_1, question_choice_service_1;
+    var core_1, router_1, question_service_1, question_choice_service_1, user_question_choice_service_1;
     var QuestionComponent;
     return {
         setters:[
@@ -25,12 +25,16 @@ System.register(['@angular/core', '@angular/router', './question.service', '../q
             },
             function (question_choice_service_1_1) {
                 question_choice_service_1 = question_choice_service_1_1;
+            },
+            function (user_question_choice_service_1_1) {
+                user_question_choice_service_1 = user_question_choice_service_1_1;
             }],
         execute: function() {
             QuestionComponent = (function () {
-                function QuestionComponent(questionService, questionChoiceService, route) {
+                function QuestionComponent(questionService, questionChoiceService, userQuestionChoiceService, route) {
                     this.questionService = questionService;
                     this.questionChoiceService = questionChoiceService;
+                    this.userQuestionChoiceService = userQuestionChoiceService;
                     this.route = route;
                 }
                 QuestionComponent.prototype.ngOnInit = function () {
@@ -54,11 +58,24 @@ System.register(['@angular/core', '@angular/router', './question.service', '../q
                 };
                 QuestionComponent.prototype.postAnswer = function (cid, qid, zid) {
                     var _this = this;
-                    this.questionChoiceService.postAnswer(cid, qid, zid)
-                        .subscribe(function (answer) { return _this.question.answer = answer; }, function (error) { return _this.errorMessage = error; }, function () { return _this.getQuestion(_this.questionList.shift().id, zid); });
+                    if (this.questionList.length > 0) {
+                        var nextQId_1 = this.questionList.shift();
+                        this.questionChoiceService.postAnswer(cid, qid, zid)
+                            .subscribe(function (answer) { return _this.question.answer = answer; }, function (error) { return _this.errorMessage = error; }, function () { return _this.getQuestion(nextQId_1.id, zid); });
+                    }
+                    else {
+                        this.questionChoiceService.postAnswer(cid, qid, zid)
+                            .subscribe(function (answer) { return _this.question.answer = answer; }, function (error) { return _this.errorMessage = error; }, function () { return _this.getResult(zid); });
+                    }
                 };
                 QuestionComponent.prototype.answer = function (cid) {
                     this.postAnswer(cid, this.question.id, this.question.quiz_id);
+                };
+                QuestionComponent.prototype.getResult = function (zid) {
+                    var _this = this;
+                    var uid = 1; // temp user_id
+                    this.userQuestionChoiceService.getResultList(uid, zid)
+                        .subscribe(function (result) { return _this.result = result; }, function (error) { return _this.errorMessage = error; });
                 };
                 QuestionComponent = __decorate([
                     core_1.Component({
@@ -67,7 +84,7 @@ System.register(['@angular/core', '@angular/router', './question.service', '../q
                             question_service_1.QuestionService
                         ]
                     }), 
-                    __metadata('design:paramtypes', [question_service_1.QuestionService, question_choice_service_1.QuestionChoiceService, router_1.ActivatedRoute])
+                    __metadata('design:paramtypes', [question_service_1.QuestionService, question_choice_service_1.QuestionChoiceService, user_question_choice_service_1.UserQuestionChoiceService, router_1.ActivatedRoute])
                 ], QuestionComponent);
                 return QuestionComponent;
             }());
