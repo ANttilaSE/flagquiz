@@ -8,13 +8,17 @@ A quiz with flags.
 - NPM >= 3
 
 # API
-- Quiz: GET /api/quiz
-- Quiz: GET /api/quiz/#
+* Quiz
+  * GET /api/quiz
+  * GET /api/quiz/#
 
-- Question: GET /api/quiz/#/question
-- Question: GET /api/quiz/#/question/#
+* Question
+  * GET /api/quiz/#/question
+  * GET /api/quiz/#/question/#
 
-- QuestionChoice: GET /api/quiz/#/question/#/choice
-- QuestionChoice: POST /api/quiz/#/question/#/answer
+* QuestionChoice
+  * GET /api/quiz/#/question/#/choice
+  * POST /api/quiz/#/question/#/answer
 
-- Result: GET /api/user/#/quiz/#
+* Result
+  * GET /api/user/#/quiz/#
