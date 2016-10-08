@@ -4,6 +4,7 @@ use Phalcon\Mvc\Micro;
 use Phalcon\Mvc\Micro\Collection as MicroCollection;
 use Phalcon\Loader;
 use Phalcon\Session\Adapter\Files as Session;
+use Phalcon\Db\Adapter\Pdo\Mysql as Database;
 
 $config = include __DIR__ . '/../app/config/config.php';
 
@@ -17,7 +18,7 @@ $loader->register();
 $app = new Micro();
 
 $app["db"] = function () use ($config) {
-	return new \Phalcon\Db\Adapter\Pdo\Mysql($config->database->toArray());
+	return new Database($config->database->toArray());
 };
 
 $app["session"] = function () {
