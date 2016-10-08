@@ -5,22 +5,19 @@ use Phalcon\Mvc\Micro\Collection as MicroCollection;
 use Phalcon\Loader;
 use Phalcon\Session\Adapter\Files as Session;
 
+$config = include __DIR__ . '/../app/config/config.php';
+
 $loader = new Loader();
 $loader->registerDirs([
-	"../app/controllers",
-	"../app/models"
+	$config->application->controllersDir,
+	$config->application->modelsDir
 ]);
 $loader->register();
 
 $app = new Micro();
 
-$app["db"] = function () {
-	return new \Phalcon\Db\Adapter\Pdo\Mysql([
-		"host"     => "localhost",
-		"username" => "root",
-		"password" => "",
-		"dbname"   => "quiz"
-	]);
+$app["db"] = function () use ($config) {
+	return new \Phalcon\Db\Adapter\Pdo\Mysql($config->database->toArray());
 };
 
 $app["session"] = function () {
