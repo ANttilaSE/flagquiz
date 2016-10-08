@@ -5,7 +5,7 @@ import { QuestionService } from './question.service';
 import { QuestionChoiceService } from '../question-choice/question-choice.service';
 import { UserQuestionChoiceService } from '../user-question-choice/user-question-choice.service';
 import { Question } from './question';
-import { UserQuestionChoice } from '../user-question-choice/user-question-choice.ts';
+import { UserQuestionChoice } from '../user-question-choice/user-question-choice';
 
 @Component({
 	templateUrl: 'app/question/question.component.html',
