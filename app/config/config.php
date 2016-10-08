@@ -2,6 +2,7 @@
 
 return new \Phalcon\Config([
 	"database" => [
+		"adapter" 	=> "mysql",
 		"host" 		=> "localhost",
 		"username" 	=> "root",
 		"password" 	=> "",
