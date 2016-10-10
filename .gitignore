@@ -1,4 +1,5 @@
 node_modules
 .phalcon
 public/typings
-app/config/*
+app/config
+app/vendor
