@@ -1,17 +1,20 @@
 <?php
 
+require __DIR__ . "/../app/vendor/autoload.php";
+
 use Phalcon\Mvc\Micro;
 use Phalcon\Mvc\Micro\Collection as MicroCollection;
 use Phalcon\Loader;
 use Phalcon\Session\Adapter\Files as Session;
 use Phalcon\Db\Adapter\Pdo\Mysql as Database;
 
-$config = include __DIR__ . '/../app/config/config.php';
+$config = include __DIR__ . "/../app/config/config.php";
 
 $loader = new Loader();
 $loader->registerDirs([
 	$config->application->controllersDir,
-	$config->application->modelsDir
+	$config->application->modelsDir,
+	$config->application->librariesDir
 ]);
 $loader->register();
 
@@ -27,6 +30,8 @@ $app["session"] = function () {
 
 	return $session;
 };
+
+$app["config"] = $config;
 
 $quiz = new MicroCollection();
 $quiz->setHandler(new QuizController());
@@ -54,6 +59,12 @@ $userQuestion->setHandler(new UserQuestionChoiceController());
 $userQuestion->setPrefix("/api/user/{userId}/quiz/{quizId}");
 $userQuestion->get("/", "resultAction");
 $app->mount($userQuestion);
+
+$login = new MicroCollection();
+$login->setHandler(new LoginController());
+$login->setPrefix("/api");
+$login->post("/login", "indexAction");
+$app->mount($login);
 
 $app->notFound(function () use ($app) {
 	$app->response->setStatusCode(404, "Not Found");

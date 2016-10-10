@@ -12,6 +12,7 @@ import { QuestionComponent } 			from './question/question.component';
 import { QuestionService } 				from './question/question.service';
 import { QuestionChoiceService } 		from './question-choice/question-choice.service';
 import { UserQuestionChoiceService } 	from './user-question-choice/user-question-choice.service';
+import { LoginService } 				from './login/login.service';
 
 @NgModule({
 	imports: [
@@ -23,14 +24,15 @@ import { UserQuestionChoiceService } 	from './user-question-choice/user-question
 		AppComponent,
 		QuizListComponent,
 		QuizComponent,
-		QuestionComponent
+		QuestionComponent,
 	],
 	providers: [
 		appRoutingProviders,
 		QuizService,
 		QuestionService,
 		QuestionChoiceService,
-		UserQuestionChoiceService
+		UserQuestionChoiceService,
+		LoginService,
 	],
 	bootstrap: [
 		AppComponent
