@@ -1,8 +1,10 @@
 import { Component, OnInit } 	from '@angular/core';
-import { Router } 	from '@angular/router';
+import { Router } 				from '@angular/router';
 
-import { FacebookService, FacebookLoginResponse, FacebookInitParams } from 'ng2-facebook-sdk/dist/index';
-import { LoginService } 		from './login.service';
+import { FacebookService,
+	FacebookLoginResponse,
+	FacebookInitParams } 	from 'ng2-facebook-sdk/dist/index';
+import { LoginService } 	from './login.service';
 
 @Component({
 	templateUrl: 'app/login/login.component.html',
@@ -15,7 +17,11 @@ export class LoginComponent implements OnInit {
 	errorMessage: string;
 	status: number = 0;
 
-	constructor (public router: Router, private fb: FacebookService, private loginService: LoginService) {}
+	constructor (
+		public router: Router,
+		private fb: FacebookService,
+		private loginService: LoginService
+	) {}
 
 	ngOnInit(): void {}
 

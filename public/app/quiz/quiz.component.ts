@@ -25,7 +25,8 @@ export class QuizComponent implements OnInit {
 	errorMessage: string;
 	result: Object;
 
-	constructor (private quizService: QuizService,
+	constructor (
+		private quizService: QuizService,
 		private questionService: QuestionService,
 		private questionChoiceService: QuestionChoiceService,
 		private userQuestionChoiceService: UserQuestionChoiceService,
@@ -38,78 +39,11 @@ export class QuizComponent implements OnInit {
 		this.getQuiz(zid);
 	}
 
-	start(): void {
-		let zid = +this.route.snapshot.params['zid'];
-		this.getQuestionList(zid);
-	}
-
-	answer(cid: number): void {
-		this.postAnswer(cid, this.question.id, this.question.quiz_id);
-	}
-
 	getQuiz(zid: number): void {
 		this.quizService.getQuiz(zid)
 			.subscribe(
 				quiz => this.quiz = quiz,
 				error =>  this.errorMessage = <any>error
-			);
-	}
-
-	getQuestionList(zid: number): void {
-		this.questionService.getQuestionList(zid)
-			.subscribe(
-				questionList => this.questionList = questionList,
-				error => this.errorMessage = <any>error,
-				() => this.getQuestion(this.questionList.shift().id, zid)
-			);
-	}
-
-	getQuestion(qid: number, zid: number): void {
-		this.questionService.getQuestion(qid, zid)
-			.subscribe(
-				question => this.question = question,
-				error => this.errorMessage = <any>error,
-				() => this.getQuestionChoiceList(qid, zid)
-			);
-	}
-
-	getQuestionChoiceList(qid: number, zid: number): void {
-		this.questionChoiceService.getQuestionChoiceList(qid, zid)
-			.subscribe(
-				question => this.question.choices = question,
-				error => this.errorMessage = <any>error
-			);
-	}
-
-	postAnswer(cid: number, qid: number, zid: number): void {
-		if (this.questionList.length > 0) {
-			let nextQId = this.questionList.shift();
-
-			this.questionChoiceService.postAnswer(cid, qid, zid)
-				.subscribe(
-					answer => this.question.answer = answer,
-					error => this.errorMessage = <any>error,
-					() => this.getQuestion(nextQId.id, zid)
-				);
-		} else {
-			let uid = +localStorage.getItem("uid");
-			this.questionChoiceService.postAnswer(cid, qid, zid)
-				.subscribe(
-					answer => this.question.answer = answer,
-					error => this.errorMessage = <any>error,
-					() => {
-						this.question = void 0;
-						this.getResult(uid, zid);
-					}
-				);
-		}
-	}
-
-	getResult(uid: number, zid: number): void {
-		this.userQuestionChoiceService.getResultList(uid, zid)
-			.subscribe(
-				result => this.result = result,
-				error => this.errorMessage = <any>error
 			);
 	}
 }

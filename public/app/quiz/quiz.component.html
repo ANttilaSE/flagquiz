@@ -1,17 +1,5 @@
 <h1 *ngIf="quiz">{{quiz.title}}</h1>
 <p *ngIf="quiz">{{quiz.description}}</p>
 
-<button *ngIf="!question && !result" (click)="start()">Start</button>
-
-<div *ngIf="question" id="question">
-	<img src="/img/flags/{{question.image}}">
-
-	<div *ngIf="question.choices" id="answers">
-		<a *ngFor="let choice of question.choices" (click)="answer(choice.id)" class="answer"><div>{{choice.text}}</div></a>
-	</div>
-</div>
-
-<div *ngIf="result">
-	<p *ngIf="result">{{result.correct}} of {{result.total}}, {{result.correct/result.total*100}}%</p>
-	<a routerLink="/quiz" routerLinkActive="active">Back to quizlist</a>
-</div>
+<my-quiz-question [result]="result"></my-quiz-question>
+<my-quiz-result #result></my-quiz-result>

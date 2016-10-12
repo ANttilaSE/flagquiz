@@ -1,0 +1,5 @@
+<div *ngIf="result" id="result">
+	<p>{{result.correct}}/{{result.total}}</p>
+	<p>{{result.correct/result.total*100}}%</p>
+	<a routerLink="/quiz" routerLinkActive="active">Back to quizlist</a>
+</div>

@@ -46,53 +46,10 @@ System.register(['@angular/core', '@angular/router', './quiz.service', '../quest
                     var zid = +this.route.snapshot.params['zid'];
                     this.getQuiz(zid);
                 };
-                QuizComponent.prototype.start = function () {
-                    var zid = +this.route.snapshot.params['zid'];
-                    this.getQuestionList(zid);
-                };
-                QuizComponent.prototype.answer = function (cid) {
-                    this.postAnswer(cid, this.question.id, this.question.quiz_id);
-                };
                 QuizComponent.prototype.getQuiz = function (zid) {
                     var _this = this;
                     this.quizService.getQuiz(zid)
                         .subscribe(function (quiz) { return _this.quiz = quiz; }, function (error) { return _this.errorMessage = error; });
-                };
-                QuizComponent.prototype.getQuestionList = function (zid) {
-                    var _this = this;
-                    this.questionService.getQuestionList(zid)
-                        .subscribe(function (questionList) { return _this.questionList = questionList; }, function (error) { return _this.errorMessage = error; }, function () { return _this.getQuestion(_this.questionList.shift().id, zid); });
-                };
-                QuizComponent.prototype.getQuestion = function (qid, zid) {
-                    var _this = this;
-                    this.questionService.getQuestion(qid, zid)
-                        .subscribe(function (question) { return _this.question = question; }, function (error) { return _this.errorMessage = error; }, function () { return _this.getQuestionChoiceList(qid, zid); });
-                };
-                QuizComponent.prototype.getQuestionChoiceList = function (qid, zid) {
-                    var _this = this;
-                    this.questionChoiceService.getQuestionChoiceList(qid, zid)
-                        .subscribe(function (question) { return _this.question.choices = question; }, function (error) { return _this.errorMessage = error; });
-                };
-                QuizComponent.prototype.postAnswer = function (cid, qid, zid) {
-                    var _this = this;
-                    if (this.questionList.length > 0) {
-                        var nextQId_1 = this.questionList.shift();
-                        this.questionChoiceService.postAnswer(cid, qid, zid)
-                            .subscribe(function (answer) { return _this.question.answer = answer; }, function (error) { return _this.errorMessage = error; }, function () { return _this.getQuestion(nextQId_1.id, zid); });
-                    }
-                    else {
-                        var uid_1 = +localStorage.getItem("uid");
-                        this.questionChoiceService.postAnswer(cid, qid, zid)
-                            .subscribe(function (answer) { return _this.question.answer = answer; }, function (error) { return _this.errorMessage = error; }, function () {
-                            _this.question = void 0;
-                            _this.getResult(uid_1, zid);
-                        });
-                    }
-                };
-                QuizComponent.prototype.getResult = function (uid, zid) {
-                    var _this = this;
-                    this.userQuestionChoiceService.getResultList(uid, zid)
-                        .subscribe(function (result) { return _this.result = result; }, function (error) { return _this.errorMessage = error; });
                 };
                 QuizComponent = __decorate([
                     core_1.Component({

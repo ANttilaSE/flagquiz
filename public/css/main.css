@@ -24,30 +24,34 @@ my-app #quizlist li div p {
 	margin: 0;
 }
 
-my-app #question img {
+my-quiz-question img {
 	box-shadow: 0 0 1px #888;
 	display: block;
 	margin: 0 auto;
 	max-width: 700px;
 	width: 100%;
 }
-my-app #question #answers {
+my-quiz-question #answers {
 	display: flex;
 	flex-wrap: wrap;
 }
-my-app #question #answers .answer {
+my-quiz-question #answers .answer {
 	flex-basis: 50%;
 	font-size: 1.1em;
 	text-align: center;
 }
-my-app #question #answers .answer div {
+my-quiz-question #answers .answer div {
 	background: #1a1a1a;
 	color: #eee;
 	margin: 0.5em;
 	padding: 1em;
 }
-my-app #question #answers .answer div:hover {
+my-quiz-question #answers .answer div:hover {
 	cursor: pointer;
+}
+
+my-quiz-result p {
+	font-size: 3em;
 }
 
 @media all and (orientation: landscape) {

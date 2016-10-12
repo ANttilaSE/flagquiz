@@ -13,6 +13,8 @@ import { QuestionChoiceService } 		from './question-choice/question-choice.servi
 import { UserQuestionChoiceService } 	from './user-question-choice/user-question-choice.service';
 import { LoginComponent } 				from './login/login.component';
 import { LoginService } 				from './login/login.service';
+import { QuestionComponent } 			from './question/question.component';
+import { QuizResultComponent } 			from './quiz-result/quiz-result.component';
 
 @NgModule({
 	imports: [
@@ -25,6 +27,8 @@ import { LoginService } 				from './login/login.service';
 		QuizListComponent,
 		QuizComponent,
 		LoginComponent,
+		QuestionComponent,
+		QuizResultComponent,
 	],
 	providers: [
 		appRoutingProviders,

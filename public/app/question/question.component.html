@@ -1,0 +1,9 @@
+<button *ngIf="!started" (click)="start()">Start</button>
+
+<div *ngIf="question" id="question">
+	<img src="/img/flags/{{question.image}}">
+
+	<div *ngIf="question.choices" id="answers">
+		<a *ngFor="let choice of question.choices" (click)="answer(choice.id)" class="answer"><div>{{choice.text}}</div></a>
+	</div>
+</div>
