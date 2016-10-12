@@ -6,9 +6,10 @@ System.register([], function(exports_1, context_1) {
         setters:[],
         execute: function() {
             Quiz = (function () {
-                function Quiz(id, title) {
+                function Quiz(id, title, description) {
                     this.id = id;
                     this.title = title;
+                    this.description = description;
                 }
                 return Quiz;
             }());

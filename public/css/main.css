@@ -13,6 +13,16 @@ my-app {
 my-app #quizlist li {
 	list-style: none;
 }
+my-app #quizlist li div {
+	border-radius: 2px;
+	box-shadow: 0 0 1px #333;
+	display: inline-block;
+	margin: 0.5em;
+	padding: 1em;
+}
+my-app #quizlist li div p {
+	margin: 0;
+}
 
 my-app #question img {
 	box-shadow: 0 0 1px #888;

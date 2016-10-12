@@ -1,1 +1,1 @@
-{"version":3,"file":"quiz.js","sourceRoot":"","sources":["quiz.ts"],"names":[],"mappings":";;;;;;;YAAA;gBAIC,cAAa,EAAU,EAAE,KAAa;oBACrC,IAAI,CAAC,EAAE,GAAG,EAAE,CAAC;oBACb,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;gBACpB,CAAC;gBACF,WAAC;YAAD,CAAC,AARD,IAQC;YARD,uBAQC,CAAA"}
+{"version":3,"file":"quiz.js","sourceRoot":"","sources":["quiz.ts"],"names":[],"mappings":";;;;;;;YAAA;gBAKC,cAAa,EAAU,EAAE,KAAa,EAAE,WAAmB;oBAC1D,IAAI,CAAC,EAAE,GAAG,EAAE,CAAC;oBACb,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;oBACnB,IAAI,CAAC,WAAW,GAAG,WAAW,CAAC;gBAChC,CAAC;gBACF,WAAC;YAAD,CAAC,AAVD,IAUC;YAVD,uBAUC,CAAA"}

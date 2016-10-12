@@ -1,5 +1,8 @@
 <nav id="quizlist" *ngIf="quizList">
 	<li *ngFor="let quiz of quizList">
-		<a routerLink="/quiz/{{quiz.id}}" routerLinkActive="active">{{quiz.title}}</a>
+		<div>
+			<a routerLink="/quiz/{{quiz.id}}" routerLinkActive="active">{{quiz.title}}</a>
+			<p>{{quiz.description}}</p>
+		</div>
 	</li>
 </nav>
