@@ -6,5 +6,5 @@ import './rxjs-operators';
 	templateUrl: 'app/app.component.html'
 })
 export class AppComponent {
-	title = "Quiz";
+	title = "QuizApp";
 }

@@ -1,11 +1,6 @@
 body {
 	padding: 0;
 	margin: 0;
-	background-color: #fff;
-	background-image:
-		linear-gradient(90deg, transparent 79px, #abced4 79px, #abced4 81px, transparent 81px),
-		linear-gradient(#eee .1em, transparent .1em);
-	background-size: 100% 1.2em;
 	font-family: sans-serif;
 }
 
@@ -15,13 +10,17 @@ my-app {
 	width: 90%;
 }
 
-my-app #question {
-
+my-app #quizlist li {
+	list-style: none;
 }
+
 my-app #question img {
+	box-shadow: 0 0 1px #888;
+	display: block;
+	margin: 0 auto;
+	max-width: 700px;
 	width: 100%;
 }
-
 my-app #question #answers {
 	display: flex;
 	flex-wrap: wrap;
@@ -37,15 +36,8 @@ my-app #question #answers .answer div {
 	margin: 0.5em;
 	padding: 1em;
 }
-
-my-app #total {
-	display: flex;
-}
-my-app #total #correct {
-	background: green;
-}
-my-app #total #wrong {
-	background: red;
+my-app #question #answers .answer div:hover {
+	cursor: pointer;
 }
 
 @media all and (orientation: landscape) {
