@@ -8,7 +8,7 @@ import { Question } from './question';
 @Injectable()
 export class QuestionService {
 	private headers = new Headers({'Content-Type': 'application/json'});
-	private quizUrl = 'http://localhost/quiz/api/quiz/';
+	private quizUrl = 'http://anttila.hopto.org/api/quiz/';
 
 	constructor(private http: Http) { }
 

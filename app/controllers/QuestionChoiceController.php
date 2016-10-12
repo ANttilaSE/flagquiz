@@ -8,9 +8,7 @@ class QuestionChoiceController extends Controller {
 	public function indexAction($quizId, $questionId) {
 		$choiceList = QuestionChoice::find([
 			"question_id = ?1",
-			"bind" => [
-				1 => $questionId
-			],
+			"bind" => [1 => $questionId],
 			"columns" => "id, question_id, text"
 		]);
 
@@ -28,8 +26,14 @@ class QuestionChoiceController extends Controller {
 		$question = Question::findFirst($questionId);
 		$questionChoice = QuestionChoice::findFirst($input->id);
 
+		$token = $request->getServer("HTTP_X_TOKEN");
+		$userToken = UserToken::findFirst([
+			"token = ?1",
+			"bind" => [1 => $token]]
+		);
+
 		$answer = new UserQuestionChoice();
-		$answer->user_id = 1;
+		$answer->user_id = $userToken->user_id;
 		$answer->question_id = $questionId;
 		$answer->question_choice_id = $input->id;
 		$answer->is_right = $questionChoice->is_correct;

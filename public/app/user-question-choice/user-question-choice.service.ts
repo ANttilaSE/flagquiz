@@ -8,7 +8,7 @@ import { UserQuestionChoice } from './user-question-choice';
 @Injectable()
 export class UserQuestionChoiceService {
 	private headers = new Headers({'Content-Type': 'application/json'});
-	private userUrl = 'http://localhost/quiz/api/user/';
+	private userUrl = 'http://anttila.hopto.org/api/user/';
 
 	constructor(private http: Http) { }
 

@@ -21,6 +21,7 @@ System.register(['@angular/core', './rxjs-operators'], function(exports_1, conte
         execute: function() {
             AppComponent = (function () {
                 function AppComponent() {
+                    this.title = "Quiz";
                 }
                 AppComponent = __decorate([
                     core_1.Component({

@@ -28,7 +28,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable'], function(
                 function LoginService(http) {
                     this.http = http;
                     this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-                    this.loginUrl = 'http://localhost/quiz/api/login';
+                    this.loginUrl = 'http://anttila.hopto.org/api/login';
                 }
                 LoginService.prototype.postLogin = function (token) {
                     var options = new http_1.RequestOptions({ headers: this.headers });

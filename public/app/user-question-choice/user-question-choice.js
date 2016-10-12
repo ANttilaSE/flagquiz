@@ -10,7 +10,7 @@ System.register([], function(exports_1, context_1) {
                     this.user_id = user_id;
                     this.question_id = question_id;
                     this.question_choice_id = question_choice_id;
-                    this.is_right = is_right;
+                    this.is_right = !!is_right;
                     this.created_at = created_at;
                 }
                 return UserQuestionChoice;

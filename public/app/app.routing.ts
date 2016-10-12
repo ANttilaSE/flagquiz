@@ -1,15 +1,19 @@
-import { ModuleWithProviders }  from '@angular/core';
+import { ModuleWithProviders } 	from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { QuizListComponent } 	from './quiz/quiz-list.component';
-import { QuizComponent }   		from './quiz/quiz.component';
-import { QuestionComponent }   	from './question/question.component';
+import { QuizComponent } 		from './quiz/quiz.component';
+import { LoginComponent } 		from './login/login.component';
 
 const appRoutes: Routes = [
 	{
 		path: '',
-		redirectTo: '/quiz',
+		redirectTo: '/login',
 		pathMatch: 'full'
+	},
+	{
+		path: 'login',
+		component: LoginComponent
 	},
 	{
 		path: 'quiz',
@@ -18,14 +22,6 @@ const appRoutes: Routes = [
 	{
 		path: 'quiz/:zid',
 		component: QuizComponent
-	},
-	{
-		path: 'quiz/:zid/question',
-		component: QuestionComponent
-	},
-	{
-		path: 'quiz/:zid/question/:qid',
-		component: QuestionComponent
 	}
 ];
 

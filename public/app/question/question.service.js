@@ -28,7 +28,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable'], function(
                 function QuestionService(http) {
                     this.http = http;
                     this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-                    this.quizUrl = 'http://localhost/quiz/api/quiz/';
+                    this.quizUrl = 'http://anttila.hopto.org/api/quiz/';
                 }
                 QuestionService.prototype.getQuestionList = function (zid) {
                     return this.http.get(this.quizUrl + zid + "/question")

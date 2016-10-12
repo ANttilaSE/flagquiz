@@ -6,12 +6,13 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class LoginService {
 	private headers = new Headers({'Content-Type': 'application/json'});
-	private loginUrl = 'http://localhost/quiz/api/login';
+	private loginUrl = 'http://anttila.hopto.org/api/login';
 
 	constructor(private http: Http) { }
 
-	postLogin(token: string): Observable<Object> {
+	postLogin(token: string): Observable<any> {
 		let options = new RequestOptions({ headers: this.headers });
+
 		return this.http.post(this.loginUrl,
 				{"token": token},
 				options

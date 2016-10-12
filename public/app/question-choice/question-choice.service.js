@@ -27,8 +27,8 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable'], function(
             QuestionChoiceService = (function () {
                 function QuestionChoiceService(http) {
                     this.http = http;
-                    this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-                    this.quizUrl = 'http://localhost/quiz/api/quiz/';
+                    this.headers = new http_1.Headers({ 'Content-Type': 'application/json', "X-token": localStorage.getItem("auth-token") });
+                    this.quizUrl = 'http://anttila.hopto.org/api/quiz/';
                 }
                 QuestionChoiceService.prototype.getQuestionChoiceList = function (qid, zid) {
                     return this.http.get(this.quizUrl + zid + "/question/" + qid + "/choice")

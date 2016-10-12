@@ -1,7 +1,7 @@
-System.register(['@angular/router', './quiz/quiz-list.component', './quiz/quiz.component', './question/question.component'], function(exports_1, context_1) {
+System.register(['@angular/router', './quiz/quiz-list.component', './quiz/quiz.component', './login/login.component'], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    var router_1, quiz_list_component_1, quiz_component_1, question_component_1;
+    var router_1, quiz_list_component_1, quiz_component_1, login_component_1;
     var appRoutes, appRoutingProviders, routing;
     return {
         setters:[
@@ -14,15 +14,19 @@ System.register(['@angular/router', './quiz/quiz-list.component', './quiz/quiz.c
             function (quiz_component_1_1) {
                 quiz_component_1 = quiz_component_1_1;
             },
-            function (question_component_1_1) {
-                question_component_1 = question_component_1_1;
+            function (login_component_1_1) {
+                login_component_1 = login_component_1_1;
             }],
         execute: function() {
             appRoutes = [
                 {
                     path: '',
-                    redirectTo: '/quiz',
+                    redirectTo: '/login',
                     pathMatch: 'full'
+                },
+                {
+                    path: 'login',
+                    component: login_component_1.LoginComponent
                 },
                 {
                     path: 'quiz',
@@ -31,14 +35,6 @@ System.register(['@angular/router', './quiz/quiz-list.component', './quiz/quiz.c
                 {
                     path: 'quiz/:zid',
                     component: quiz_component_1.QuizComponent
-                },
-                {
-                    path: 'quiz/:zid/question',
-                    component: question_component_1.QuestionComponent
-                },
-                {
-                    path: 'quiz/:zid/question/:qid',
-                    component: question_component_1.QuestionComponent
                 }
             ];
             exports_1("appRoutingProviders", appRoutingProviders = []);

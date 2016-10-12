@@ -5,4 +5,6 @@ import './rxjs-operators';
 	selector: 'my-app',
 	templateUrl: 'app/app.component.html'
 })
-export class AppComponent {}
+export class AppComponent {
+	title = "Quiz";
+}

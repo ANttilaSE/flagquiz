@@ -28,7 +28,7 @@ System.register(['@angular/core', '@angular/http', 'rxjs/Observable'], function(
                 function UserQuestionChoiceService(http) {
                     this.http = http;
                     this.headers = new http_1.Headers({ 'Content-Type': 'application/json' });
-                    this.userUrl = 'http://localhost/quiz/api/user/';
+                    this.userUrl = 'http://anttila.hopto.org/api/user/';
                 }
                 UserQuestionChoiceService.prototype.getResultList = function (uid, zid) {
                     return this.http.get(this.userUrl + uid + "/quiz/" + zid)

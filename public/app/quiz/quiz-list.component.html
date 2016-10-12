@@ -1,14 +1,3 @@
-<div *ngIf="loginStatus">
-	<div *ngIf="loginStatus.status <= 1">
-		<button (click)="login()">Log in</button>
-	</div>
-	<div *ngIf="loginStatus.status == 1">
-		Cancelled/Error
-	</div>
-	<div *ngIf="loginStatus.status == 2">
-		Logged in
-	</div>
-</div>
 <nav *ngIf="quizList">
 	<a *ngFor="let quiz of quizList" routerLink="/quiz/{{quiz.id}}" routerLinkActive="active">{{quiz.title}}</a>
 </nav>

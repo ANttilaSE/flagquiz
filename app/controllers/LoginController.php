@@ -2,6 +2,7 @@
 
 use Phalcon\Mvc\Controller;
 use Phalcon\Http\Response;
+use Phalcon\Security\Random;
 
 class LoginController extends Controller {
 	public function indexAction() {
@@ -37,10 +38,18 @@ class LoginController extends Controller {
 				$user->facebook_id = $fbId;
 				$user->create();
 			}
+
+			$token = new UserToken();
+			$token->user_id = $user->id;
+			$random = new Random();
+			$token->token = $random->base64(50);
+			if ($token->create() === false) {
+				# something
+			}
 		}
 
 		$response = new Response();
-		$response->setJsonContent(["data" => @$user, "msg" => $msg]);
+		$response->setJsonContent(["data" => ["token" => @$token->token, "uid" => @$token->user_id], "msg" => $msg]);
 		$response->send();
 	}
 }
